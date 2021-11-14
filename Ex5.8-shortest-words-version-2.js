@@ -1,11 +1,15 @@
 function longestWord(str) {
   words = str.split(" ");
   longestWordLenght = words[0].length;
+  const longestWords = [];
 
   for (const word of words)
     if (longestWordLenght < word.length) longestWordLenght = word.length;
 
-  return longestWordLenght;
+  for (const word of words)
+    if (longestWordLenght === word.length) longestWords.push(word);
+
+  return longestWords;
 }
 
 console.log(
@@ -18,3 +22,4 @@ console.log(
 );
 console.log(longestWord("test"));
 console.log(longestWord("another test"));
+console.log(longestWord("test test test test"));
